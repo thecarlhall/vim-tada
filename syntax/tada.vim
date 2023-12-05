@@ -33,8 +33,16 @@ endfor
 execute 'syn match tadaInvalidConfig "' . g:tada_pat_invalid_config . '"'
 execute 'syn match tadaBufferConfig "' . g:tada_pat_buffer_config . '"'
 
-syn match tadaContext '\(^\|\W\)@[^[:blank:]]\+'
-syn match tadaProject '\(^\|\W\)+[^[:blank:]]\+'
+syn match tadaContext '\(^\|\W\)@[^[:blank:]]\+' contained
+syn match tadaProject '\(^\|\W\)+[^[:blank:]]\+' contained
+
+syn match tadaStatusPre "[\?]:" conceal cchar=📊 contained containedin=tadaMetadata
+syn match tadaAssignPre "@:" conceal cchar=🧑 contained containedin=tadaMetadata
+syn match tadaStartPre "\^:" conceal cchar=🛫 contained containedin=tadaMetadata
+syn match tadaDuePre "\$:" conceal cchar=📅 contained containedin=tadaMetadata
+syn match tadaLinkPre "&:" conceal cchar=🔗 contained containedin=tadaMetadata
+syn match tadaTagsPre "#:" conceal cchar=🏷️ contained containedin=tadaMetadata
+syn match tadaPrioPre "!:" conceal cchar=❗ contained containedin=tadaMetadata
 
 hi def link tadaArchive Comment
 hi def link tadaBufferConfig Comment
